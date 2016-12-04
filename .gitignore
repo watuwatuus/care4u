@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+public/bower_components
+*.env
+*.dev
+.DS_Store
+Dockerfile
+docker-compose.yml

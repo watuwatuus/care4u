@@ -7,9 +7,11 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+      "start": "node index.js",
+      "postinstall": "cd public && bower install"
   },
-  "dependencies": {
+    "dependencies": {
+	"bower":"1.8.0",
     "ejs": "2.4.1",
     "express": "4.13.3"
   },
