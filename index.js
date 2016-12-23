@@ -45,7 +45,14 @@ app.post('/api/new-user', function(req, res) {
 	console.log(err);
 	console.log(reply);
     });
-    client.hmset('PETS:'+pet_id.toString(), 'pet_name', req.body.pet_name, "pet_type"
+    user_id = client.incr("next_user_id", function(err,reply){
+	if(err)
+	    console.log(err);
+    });    
+    client.hmset('user:'+user_id, "name", req.body.name, "email", req.body.email,function(err, reply){if(err) console.log(err) });
+    client.rpush('user_pets:'+user_id, pet_id);
+							    
+    client.hmset('PETS:'+pet_id.toString(), "user_id", user_id, 'pet_name', req.body.pet_name, "pet_type"
 		 ,req.body.pet_type, function(err, reply) {
 		     console.log(reply); // 3
 		     console.log(err);

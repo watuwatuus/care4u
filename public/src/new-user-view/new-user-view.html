@@ -24,6 +24,9 @@
 
     <paper-card>
       <form is="iron-form" method="post" action="/api/new-user" id="form">
+	<paper-input name="user_name" label="Name" required></paper-input>
+	<paper-input name="email" label="Email Adress" required></paper-input>
+
 	<paper-input name="pet_name" label="Pet Name" required></paper-input>
 	<br>
 	<paper-dropdown-menu label="Pet Type" name="pet_type" required>
