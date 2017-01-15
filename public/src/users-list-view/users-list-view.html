@@ -1,0 +1,41 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="users-list-view">
+  <template>
+    <style>
+    </style>
+    
+    <template is="dom-repeat" items="{{users}}">
+      <!--<paper-card> -->
+        <div>First name: <span>{{item.name}}</span></div>
+        <div>email: <span>{{item.email}}</span></div>
+      <!-- </paper-card> -->
+    </template>
+
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'users-list-view',
+      ready: function(){
+        this.users = [
+            {name:'keyvan', email:'eee@gd'},
+            {name:'kash', email:'kkk@gd'}
+        ];
+      }
+
+    })
+  </script>
+  
+
+ </dom-module>
+	    

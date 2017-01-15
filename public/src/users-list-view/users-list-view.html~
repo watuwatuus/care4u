@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="users-list-view.html">
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      paper-card {
+        padding: 12px 12px;
+        width: 90%;
+      }
+    </style>
+    <paper-card>
+
+    </paper-card>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'check-users-view',
+
+    })
+  </script>
+  
+
+ </dom-module>
+	    

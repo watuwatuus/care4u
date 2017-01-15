@@ -9,8 +9,9 @@
 <link rel="import" href="../shared-styles.html">
 <link rel="import" href="../education-element/education-element.html">
 
-<dom-module id="new-user-view">
+<dom-module id="list-users-view">
   <template>
+    <style>
     <style include="shared-styles">
       :host {
         display: block;
@@ -23,31 +24,24 @@
       }
     </style>
 
-    
-    <paper-card>
-     <!--  <form is="iron-form" content-type='application/json' method="post" action="/api/new-user" id="form"> -->
-	<paper-input name="user_name" label="Name" value ="{{user_name}}" required></paper-input>
-	<paper-input name="email" label="Email Adress" value="{{user_email}}" required></paper-input>
+    <iron-ajax
+       content-type = "application/json"
+       id = "ajax_ListUser"
+       url = "/api/list-users"
+       method = "POST"
+       handle-as = "json"
+       >
+    </iron-ajax>
+  </template>
 
-	<!-- <paper-input name="pet_name" label="Pet Name" required></paper-input>
-	<br>
-	<paper-dropdown-menu label="Pet Type" name="pet_type" required>
-	  <paper-menu class="dropdown-content">
-	    <paper-item value="cat">Cat</paper-item>
-	    <paper-item value="dog">Dog</paper-item>
-	  </paper-menu>
-	</paper-dropdown-menu>
-	<paper-button raised on-tap="addPet">+</paper-button>
-	-->
-	<div> Education </div>
-	<template is="dom-repeat" items="{{educations}}">
-	  <education-element school="{{item}}"> </education-element>
-	</template>
-	<paper-button raised on-tap='addEducation_'>add education</paper-button> 
-	<paper-button raised on-tap="submit_">Submit</paper-button>
-	<!--<div class="output"></div> -->
-      <!-- </form> -->
-    </paper-card>
+  <script>
+    Polymer({
+
+
+    });
+    
+  </script>
+</dom-module>
 
     <iron-ajax
        content-type = "application/json"
