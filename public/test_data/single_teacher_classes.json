@@ -1,0 +1,41 @@
+[
+    {
+	"id": "1",
+	"category": "analytics",
+	"title": "Marketing Analytics",
+	"description": "Here we learn basics of marketing analytics",
+	"score": "5",
+	"level": "advanced",
+	"prerequisite": "basic algebra and statistics",
+	"teacher_id":"3",
+	"lessons": [{"title":"Introduction to analytics"}, {"title":"marketing analytics"}, {"title":"modeling"}]
+	
+    },
+    {
+	"id": "2",
+	"category": "",
+	"title": "Behavioral interviews",
+	"description": "to discuss about behavioral interview questions around strategical thinking and leadership",
+	"score": "",
+	"level": "intermediate",
+	"prerequisite": "None",
+	"teacher_id":"3",
+	"lessons": [{}]
+
+    },
+    {
+	"id": "3",
+	"category": "IT",
+	"title": "Basics of Machine learning",
+	"description": "Here we learn basics of machine learning, and how it can be used in industry",
+	"score": "4.5",
+	"level": "basic",
+	"prerequisite": "Basic algebra, basic statistics is a plus",
+	"teacher_id":"3",
+	"lessons": [{"title":"Introduction to statistics"}, {"title":"Introduction to machine learning"}, {"title":"machine learning application"}]
+	
+    }
+]
+
+
+

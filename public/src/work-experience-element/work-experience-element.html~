@@ -24,9 +24,9 @@
     </style>
 
 
-	<paper-input name="school_name" label="School Name" value="{{education.school_name}}" required></paper-input>
+	<paper-input name="school_name" label="School Name" value="{{school.school_name}}" required></paper-input>
 	<br>
-	<paper-dropdown-menu label="Degree" name="degree" value="{{education.degree}}" required>
+	<paper-dropdown-menu label="Degree" name="degree" value="{{school.degree}}" required>
 	  <paper-menu class="dropdown-content">
 	    <paper-item value="Bachlers">Bachlers</paper-item>
 	    <paper-item value="Masters">Masters</paper-item>
@@ -40,7 +40,7 @@
     Polymer({
       is: 'education-element',
       properties: {
-        education: {
+        school: {
           type: Object,
           value: {},
         }

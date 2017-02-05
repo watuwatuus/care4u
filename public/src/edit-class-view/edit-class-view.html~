@@ -1,52 +1,42 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
 <link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <link rel="import" href="../shared-styles.html">
+<link rel="import" href="../education-element/education-element.html">
 
 
-<dom-module id="education-element">
+<dom-module id="edit-class-view">
   <template>
     <style include="shared-styles">
       :host {
-        display: block;
-
-        padding: 10px;
-      }
-      paper-card {
-        padding: 12px 12px;
-        width: 90%;
+      display: block;
+      padding: 10px;
       }
     </style>
+    <app-route
+       route="{{route}}"
+       pattern="/:id"
+       data="{{routeData}}"
+       >
+    </app-route>
 
-
-	<paper-input name="school_name" label="School Name" value="{{education.school_name}}" required></paper-input>
-	<br>
-	<paper-dropdown-menu label="Degree" name="degree" value="{{education.degree}}" required>
-	  <paper-menu class="dropdown-content">
-	    <paper-item value="Bachlers">Bachlers</paper-item>
-	    <paper-item value="Masters">Masters</paper-item>
-	    <paper-item value="PhD">PhD</paper-item>
-	  </paper-menu>
-	</paper-dropdown-menu>
-
+    
   </template>
-  
+
   <script>
     Polymer({
-      is: 'education-element',
-      properties: {
-        education: {
-          type: Object,
-          value: {},
-        }
-      },
+    is: 'edit-class-view',
+    
 
     });
   </script>
 
 </dom-module>
+

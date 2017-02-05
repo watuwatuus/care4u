@@ -10,7 +10,7 @@
 <link rel="import" href="../education-element/education-element.html">
 <link rel="import" href="../work-experience-element/work-experience-element.html"> 
 
-<dom-module id="new-user-view">
+<dom-module id="new-class-view">
   <template>
     <style is="custom-style" include="shared-styles">
       :host {
@@ -35,79 +35,51 @@
     
     <paper-card class="white" style="margin-bottom:8px;">
       <div class="card-content">
-      <paper-input name="user_name" label="Name" value ="{{user_name}}" required></paper-input>
-      <paper-input name="email" label="Email Adress" value="{{user_email}}" required></paper-input>
+      <paper-input name="class_title" label="Class Title" value ="{{class_title}}" required></paper-input>
+      <paper-input name="class_category" label="Category (e.g. marketing)" value="{{class_category}}" required></paper-input>
+      <paper-input name="class_description" label="Description" value="{{class_description}}" required></paper-input>
       </div>
     </paper-card>
-    <hr>
-    <paper-card>
-      <div> Work Experience </div>
-      <template is="dom-repeat" items="{{positions}}" >
-	<work-experience-element position="{{item}}"> <work-experience-element>
+    <!--<paper-card>
+      <div> Lessons </div>
+      <template is="dom-repeat" items="{{lessons}}">
+	<paper-element value="{{item.lesson_title}}"></paper-element>
       </template>
-      <paper-button raised on-tap='addWorkExperience_'>+</paper-button>
-    </paper-card>
+    </paper-card> -->
     <hr>
-    <paper-card>
-      <div> Education </div>
-      <template is="dom-repeat" items="{{educations}}">
-	<education-element school="{{item}}"> </education-element>
-      </template>
-      <paper-button raised on-tap='addEducation_'>+</paper-button> 
-      <!--<div class="output"></div> -->
-      <!-- </form> -->
-    </paper-card>
     <paper-button raised on-tap="submit_">Submit</paper-button>
     
-    <iron-ajax
+    <!--<iron-ajax
        content-type = "application/json"
        id = "ajax1"
        body = "[[body]]"
-       url = "/api/new-user"
+       url = "/api/new-class"
        handle-as = "json"
        method = "POST"
        >
-    </iron-ajax>
+    </iron-ajax> -->
   </template>
   
   <script>
     Polymer({
-      is: 'new-user-view',
-      //submit_: function() {
-      //  this.$.form.submit();
-      //  this.$form. 
-      //},
+      is: 'new-class-view',
 
       properties: {
-        educations: {
+        lessons: {
           type: Array,
           value: [{}],
         },
-        positions: {
-          type: Array,
-          value: [{}],
-        }
       },
     
-      addEducation_: function(){
-        this.push('educations', {});
-      },
-
-      addWorkExperience_: function(){
-        this.push('positions',{});
-      },
-
-      submit_: function(){
-        this.set("body", JSON.stringify({
-          user_name: this.user_name,
-          user_email: this.user_email,
-          positions: this.positions,
-          educations: this.educations
-        })
-      )
-    
-    this.$.ajax1.generateRequest();
-    },
+    submit_: function(){
+      this.set("body", JSON.stringify({
+        class_title: this.class_title,
+        class_category: this.class_category,
+        class_description = class_description,
+        lessons: this.lessons;
+      });
+      this.$.ajax1.generateRequest();
+    }
 
     });
   </script>

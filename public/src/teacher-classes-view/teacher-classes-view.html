@@ -11,7 +11,7 @@
 <link rel="import" href="../shared-styles.html">
 <link rel="import" href="../education-element/education-element.html">
 
-<dom-module id="list-users-view">
+<dom-module id="teacher-classes-view">
   <template>
     <style include="shared-styles">
       :host {
@@ -25,46 +25,43 @@
       }
     </style>
 
-    <iron-list items="[[response]]" as="item">
+    <h1> I m here </h1>
+    <iron-list items="[[response]]" as="class">
       <template>
 	<paper-card>
-	<paper-item> [[item.profile.name]] </paper-item>
-	<paper-item> [[item.profile.email]] </paper-item>
-	<!--	<iron-item> [[item.education]] </iron-item> -->
-        <iron-list items="[[item.education]]" as="edItem">
-	  <template><paper-item> [[edItem.school_name]] [[edItem.degree]]</paper-item></template>
-	</iron-list>
-	<a href="/new-user">see more</a> 
+	  <paper-item> [[class.title]] [[item.class_score]]</paper-item>
+	  <paper-item> [[class.score]] </paper-item>
+	  <paper-item> [[class.category]] </paper-item>
+          <paper-item> [[class.description]] </paper-item>
+          <paper-item> [[class.level]] </paper-item>
+	  <a href$="/edit-class/[[class.id]]">Details</a>
+	</paper-card>
       </template>
+    </iron-list> 
 
-      <paper-card>
-    </iron-list>
 
     <iron-ajax
        auto
-       id = "ajaxListUser"
-       url = "/api/list-users"
+       id = "ajaxListMyClasses"
+       url = "/test_data/single_teacher_classes.json"
        last-response = "{{response}}"
        on-response = "checkResponse"
        handle-as = "json"
-       method = "POST"
+       method = "GET"
        >
     </iron-ajax>
+
     <!--<span>{{response}}<span> -->
   </template>
 
   <script>
     Polymer({
-      is: 'list-users-view',
+      is: 'teacher-classes-view',
 
       checkResponse: function(){
         console.log(this.response);
-      },
+    },
 
-//      showTeacher: function(){
-//        targetURL = ["../../new-user-view/new-user-view.html", this.response.].join('/');
-//        window.location.href = 
-//      }
     });
   </script>
 </dom-module>
