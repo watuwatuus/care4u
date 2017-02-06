@@ -90,15 +90,16 @@
     checkResponse: function(){
   console.log(this.response);
   console.log(this.routeData.id);
-      for(var i=0;i<this.response.length;i++){
-	if(this.response[i].id = this.routeData.id)
-	  this.class = this.response[i];
-      }
-		      console.log(this.class);
-		      }
-		      
-    });
-		      </script>
+  for(var i=0;i<this.response.length;i++){
+		  console.log(this.response[i].id);
+		  if(this.response[i].id = this.routeData.id)
+		  this.class = this.response[i];
+		  }
+		  console.log(this.class);
+		  }
+		  
+		  });
+		  </script>
   
 </dom-module>
 
