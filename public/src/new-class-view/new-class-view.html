@@ -53,7 +53,7 @@
     <paper-card>
       <div> Lessons </div>
       <template name="lesson_titles" is="dom-repeat" items="{{cl.lessons}}">
-	<paper-input name="lesson_title" label="[[getLessonLabel(index)]]" value="{{item.lesson_title}}"></paper-input>
+	<paper-input name="lesson_title" label="[[getLessonLabel(index)]]" value="{{item.title}}"></paper-input>
       </template>
       <paper-button on-tap='addLesson_'>+</paper-button>
     </paper-card> 
@@ -76,7 +76,8 @@
       is: 'new-class-view',
 
     ready: function(){
-      this.set("cl", {
+    this.set("cl", {
+        id: '',
         title: '',
         category: '',
         score: '',
@@ -88,7 +89,7 @@
     },
 
     submit_: function(){
-    this.set("body", JSON.stringify(this.c));
+    this.set("body", JSON.stringify(this.cl));
     console.log(this.cl);
       /*this.set("body", JSON.stringify({
         class_title: this.class_title,
