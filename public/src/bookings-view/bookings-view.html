@@ -21,23 +21,38 @@
 	  }
     </style>
 
-    <!-- <template is="dom-repeat" items="[[response]]"> -->
-    <iron-list items="[[response]]">
-      <template>
+    <h2> Ongoing bookings </h2>
+    <template is="dom-repeat" items="[[response]]" filter="_inProcess" observe="booking.status">
+      <!-- <iron-list items="[[response]]" filter="_inProcess" observe="booking.status">
+	   <template> -->
       <paper-card>
 	<div>
 	  <booking-request-element booking="[[item.booking]]"> </booking-request-element>
 	  <class-summary-element cl="[[item.cl]]"></class-summary-element>
 	  <student-summary-element student="[[item.student]]"></student-summary-element>
-	  <paper-button on_tap="[[acceptPushed_]]" raised hidden$="[[item.booking.i_attend]]"> Accept  </paper-button>
-	  <!--
-	      <paper-button on_tap="[[rejectPushed_]]" raised  hidden$="[[booking.I_attend]]"> Reject </paper-button>
-	      <paper-button on_tap="[[ChangePushed_]]" raised> Change </paper-button> -->
-    <br>
-    <br>
+	  <hr>
+	  
 	</div>
       </paper-card>
-  </template>
+    </template>
+
+    <h2> Cancelled/Finished classes </h2>
+    <template is="dom-repeat" items="[[response]]" filter="_processed" observe="booking.status">
+      <!-- <iron-list items="[[response]]" filter="_inProcess" observe="booking.status">
+	   <template> -->
+      <paper-card>
+	<div>
+	  <booking-request-element booking="[[item.booking]]"> </booking-request-element>
+	  <class-summary-element cl="[[item.cl]]"></class-summary-element>
+	  <student-summary-element student="[[item.student]]"></student-summary-element>
+	  <hr>
+	  
+	</div>
+      </paper-card>
+    </template>
+    
+
+    
   </iron-list>
     <iron-ajax
        auto
@@ -49,7 +64,7 @@
        method = "Get"
        >
     </iron-ajax>
-
+    
   </template>
   
   <script>
@@ -61,10 +76,21 @@
 		value: [],
 	    }
 	},
-
+	
 	checkResponse: function(){
 	    console.log(this.response);
 	},
+
+	_inProcess: function(item){
+	    //return item.booking.status == "accepted";
+	    return ["accepted", "incomingRequest", "waitingResponse"].includes(item.booking.status);
+	},
+
+	_processed: function(item){
+	    //return item.booking.status == "accepted";
+	    return ["finished", "cancelled"].includes(item.booking.status);
+	}
+
 	
     });
   </script>

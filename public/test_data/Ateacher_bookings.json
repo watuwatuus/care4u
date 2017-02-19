@@ -1,0 +1,110 @@
+[
+    {
+	"cl":{
+	    "id": "1",
+	    "category": "analytics",
+	    "title": "Marketing Analytics",
+	    "description": "Here we learn basics of marketing analytics",
+	    "level": "advanced",
+	    "prerequisite": "basic algebra and statistics",	
+	    "lessons": [{"title":"Introduction to analytics"}, {"title":"marketing analytics"}, {"title":"modeling"}]
+
+	},
+	"student": {
+	    "id": "1",
+	    "name": "Kevin",
+	    "score": 4.5
+	},
+	"booking": {
+	    "time": "2017-03-03-17-01-01",
+	    "i_attend": true,
+	    "participants": [{ "id":"1", "attend": false}],
+	    "cl_id" : "1", 
+	    "status": "cancelled"
+	}
+    },
+    
+    {
+	"cl":{
+	    "id": "2",
+	    "category": "",
+	    "title": "Behavioral interviews",
+	    "description": "to discuss about behavioral interview questions around strategical thinking and leadership",
+	    
+	    "level": "intermediate",
+	    "prerequisite": "None",
+	    "lessons": [{}]
+	},
+	
+	"student": {
+	    "id": "1",
+	    "name": "Kevin",
+	    "score": 4.5
+	},
+	
+	"booking":{
+	    "cl_id": "2",
+	    "time": "2017-03-22-17-01-01",
+	    "i_attend": true,
+	    "participants": [{ "id":"3", "attend": "true"}],
+	    "status": "accepted"
+	}
+    },
+
+    {
+	"cl":{
+	    "id": "1",
+	    "category": "IT",
+	    "title": "Basics of Machine learning",
+	    "description": "Here we learn basics of machine learning, and how it can be used in industry",
+	    "score": 4.5,
+	    "level": "basic",
+	    "prerequisite": "Basic algebra, basic statistics is a plus",
+	    "lessons": [{"title":"Introduction to statistics"}, {"title":"Introduction to machine learning"}, {"title":"machine learning application"}]
+	},
+	
+	"student": {
+	    "id": "20",
+	    "name": "Selmon",
+	    "score": 4.0
+	},
+	
+	
+	"booking":{
+	    "cl_id": "1",
+	    "time": "2017-03-23-17-01-01",
+	    "i_attend": false,
+	    "participants": [{ "id":"20", "attend": true}],
+	    "status": "incomingRequest"
+	}
+    },
+
+    {
+	"cl":{
+	    "id": "1",
+	    "category": "IT",
+	    "title": "Basics of Machine learning",
+	    "description": "Here we learn basics of machine learning, and how it can be used in industry",
+	    "score": 4.5,
+	    "level": "basic",
+	    "prerequisite": "Basic algebra, basic statistics is a plus",
+	    "lessons": [{"title":"Introduction to statistics"}, {"title":"Introduction to machine learning"}, {"title":"machine learning application"}]
+	},
+	
+	"student": {
+	    "id": "11",
+	    "name": "Harris",
+	    "score": 2.5
+	},
+
+	"booking":{
+	    "cl_id": "1",
+	    "time": "2017-04-03-17-01-01",
+	    "i_attend": true,
+	    "participants": [{ "id":"11", "attend": false}],
+	    "status": "waitingResponse"
+	}
+	
+    }
+
+]

@@ -1,25 +1,38 @@
 [
     {
-	"class_id": "1",
-	"class_title": "marketing analytics",
-	"class_category": "marketing analytics",
-	"class_description": "to leadn basics of marketing analytics",
-	"class_score": "4.1",
-	"teacher_id":"4",
-	"teacher_name":"Nick",
-	"work_experience":[{"company_name":"IBM", "division":"marketing", "title":"Analytics lead"}, {"company_name":"CA", "division":"engineering", "title":"data Scientist"}, {"company_name":"Tohoku Uni", "division":"Brain Science", "title":"researcher"}]
+	"cl": {
+	    "id": "1",
+	    "title": "marketing analytics",
+	    "category": "marketing analytics",
+	    "description": "to leadn basics of marketing analytics",
+	    "score": "4.1"
+	},
+	"teacher": {
+	    "id":"4",
+	    "name":"Nick",
+	    "score": "4.5",
+	    "workhours":"35",
+	    "description": "I have faced two big changes in my career life and know the obstacles for such changes. I can teach you with how to take interviews when you want to take such changes. Also, having always been in jobs related to analytics I can teach you the core concepts of analytics which always come into play", 
+	    "work_experience":[{"company_name":"IBM", "division":"marketing", "title":"Analytics lead"}, {"company_name":"CA", "division":"engineering", "title":"data Scientist"}, {"company_name":"Tohoku Uni", "division":"Brain Science", "title":"researcher"}]
+	}
     },
-
- {
-	"class_id": "2",
-	"class_title": "behavioral interviews",
-	"class_category": "strategy",
-	"class_description": "to discuss about behavioral interview questions around strategical thinking and leadership",
-	"class_score": "",
-	"teacher_id":"4",
-	"teacher_name":"Nick",
-	"work_experience":[{"company_name":"IBM", "division":"marketing", "title":"Analytics lead"}, {"company_name":"CA", "division":"engineering", "title":"data Scientist"}, {"company_name":"Tohoku Uni", "division":"Brain Science", "title":"researcher"}]
+    
+    {
+	"cl": {
+	    "id": "2",
+	    "title": "behavioral interviews",
+	    "category": "strategy",
+	    "description": "to discuss about behavioral interview questions around strategical thinking and leadership",
+	    "score": ""
+	},
+	"teacher": {
+	    "id":"4",
+	    "name":"Joe",
+	    "score": "3",
+	    "workhours":"10",
+	    "description": "I would like to teach some cool stuff",
+	    "work_experience":[{"company_name":"IDE", "division":"sales", "title":"Salesman"}, {"company_name":"CA", "division":"engineering", "title":"data Scientist"}, {"company_name":"Tohoku Uni", "division":"Brain Science", "title":"researcher"}]
+	}
     }
-
 
 ]

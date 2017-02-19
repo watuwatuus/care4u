@@ -1,0 +1,25 @@
+[
+    {
+	"class_id": "1",
+	"class_title": "marketing analytics",
+	"class_category": "marketing analytics",
+	"class_description": "to leadn basics of marketing analytics",
+	"class_score": "4.1",
+	"teacher_id":"4",
+	"teacher_name":"Nick",
+	"work_experience":[{"company_name":"IBM", "division":"marketing", "title":"Analytics lead"}, {"company_name":"CA", "division":"engineering", "title":"data Scientist"}, {"company_name":"Tohoku Uni", "division":"Brain Science", "title":"researcher"}]
+    },
+
+ {
+	"class_id": "2",
+	"class_title": "behavioral interviews",
+	"class_category": "strategy",
+	"class_description": "to discuss about behavioral interview questions around strategical thinking and leadership",
+	"class_score": "",
+	"teacher_id":"4",
+	"teacher_name":"Nick",
+	"work_experience":[{"company_name":"IBM", "division":"marketing", "title":"Analytics lead"}, {"company_name":"CA", "division":"engineering", "title":"data Scientist"}, {"company_name":"Tohoku Uni", "division":"Brain Science", "title":"researcher"}]
+    }
+
+
+]

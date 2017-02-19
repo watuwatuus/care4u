@@ -12,18 +12,25 @@
 <dom-module id="booking-request-element">
   <template>
     <style include="shared-element">
-          :host {
-	      display:block;
-	  }
+      :host {
+	  display:block;
+      }
     </style>
-
-    <paper-item> Booking requested for [[booking.time]] </paper-item>
-    <paper-button on_tap="[[acceptPushed_]]" raised hidden$="[[item.booking.i_attend]]"> Accept  </paper-button>
-	  <!--
-	      <paper-button on_tap="[[rejectPushed_]]" raised  hidden$="[[booking.I_attend]]"> Reject </paper-button>
-	      <paper-button on_tap="[[ChangePushed_]]" raised> Change </paper-button> -->
     
-
+    <paper-item hidden="[[_isAccepted(booking.status)]]">  Class Booked for [[booking.time]] </paper-item>
+    <paper-item hidden="[[_isWaitingResponse(booking.status)]]">  Waiting request for [[booking.time]] </paper-item>
+    <paper-item hidden="[[_isIncomingRequest(booking.status)]]">  Request received for [[booking.time]] </paper-item>
+    <paper-item hidden="[[_isFinished(booking.status)]]">   Class was perfromed at [[booking.time]] </paper-item>
+    <paper-item hidden="[[_isCancelled(booking.status)]]">  Class was cancelled, class time [[booking.time]] </paper-item>
+    
+    
+    <paper-button on_tap="[[acceptPushed_]]" raised hidden="[[_canAccept(booking.status)]]"> Accept  </paper-button>    
+    <paper-button on_tap="[[acceptPushed_]]" raised hidden="[[_canChangeCancel(booking.status)]]"> Change  </paper-button>    
+    <paper-button on_tap="[[acceptPushed_]]" raised hidden="[[_canChangeCancel(booking.status)]]"> Cancel  </paper-button>    
+    
+    
+    
+    
   </template>
   
   <script>
@@ -35,11 +42,62 @@
 		value: {},
 	    }
 	},
+	
+	
+	_isAccepted:function(status){
+	    console.log(status);
+	    if(status=="accepted")
+		return false;
+	    return true;
+	},
+	
+	_isWaitingResponse(status){
+	    
+	    if(status=="waitingResponse")
+		return false;
+	    return true;
+	    
+	},
+	
+	
+	_isIncomingRequest:function(status){
+	    
+	    if(status=="incomingRequest")
+		return false;
+	    return true;
+	},
 
+	_isFinished:function(status){
+	    
+	    if(status=="finished")
+		return false;
+	    return true;
+	},
+
+	_isCancelled:function(status){
+	    
+	    if(status=="cancelled")
+		return false;
+	    return true;
+	},
+
+
+	_canAccept:function(status){
+	    if(status== "incomingRequest")
+		return false;
+	    return true;
+	},
+
+	_canChangeCancel:function(status){
+	    if(status != "cancelled" && status!= "finished")
+		return false;
+	    return true;
+	},
+	
 	acceptPushed_: function(){
 	    this.booking.status = accepted;
 	},
-
+	
 	rejectPushed_: function(){
 	    this.booking.status = rejected;
 	},

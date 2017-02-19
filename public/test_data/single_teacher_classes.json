@@ -1,13 +1,12 @@
 [
     {
+	
 	"id": "1",
 	"category": "analytics",
 	"title": "Marketing Analytics",
 	"description": "Here we learn basics of marketing analytics",
-	"score": "5",
 	"level": "advanced",
-	"prerequisite": "basic algebra and statistics",
-	"teacher_id":"3",
+	"prerequisite": "basic algebra and statistics",	
 	"lessons": [{"title":"Introduction to analytics"}, {"title":"marketing analytics"}, {"title":"modeling"}]
 	
     },
@@ -19,7 +18,6 @@
 	"score": "",
 	"level": "intermediate",
 	"prerequisite": "None",
-	"teacher_id":"3",
 	"lessons": [{}]
 
     },
@@ -31,7 +29,6 @@
 	"score": "4.5",
 	"level": "basic",
 	"prerequisite": "Basic algebra, basic statistics is a plus",
-	"teacher_id":"3",
 	"lessons": [{"title":"Introduction to statistics"}, {"title":"Introduction to machine learning"}, {"title":"machine learning application"}]
 	
     }
