@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../shared-styles.html">
+
+
+<dom-module id="teacher-summary-element">
+  <template>
+    <style include="shared-element">
+          :host {
+	      display:block;
+	  }
+    </style>
+
+    <paper-item> [[teacher.name]] [[teacher.score]]</paper-item>
+    <paper-item> [[teacher.score]] </paper-item>
+    <paper-itme> [[teacher.hours]] </paper-item>
+    <paper-item> teacher companies goes here [[teacher.companies]] </paper-item>    
+    
+  </template>
+  
+  <script>
+    Polymer({
+	is: 'teacher-summary-element',
+	properties: {
+	    teacher: {
+		type: Object,
+		value: {},
+	    }
+	},
+    });
+  </script>
+</dom-module>

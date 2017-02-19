@@ -79,9 +79,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	  <a name="new-user" href="/new-user">New User</a>
 	  <!-- <a name="user-lists" href="/users-list">User list</a> -->
 	  <a name="list-users" href="/list-users">List users</a>
-	  <a name="list-classes" href="/list-classes">explore </a>
+	  <a name="explore" href="/explore">explore </a>
 	  <a name="new-class" href="/new-class">New Class</a>
 	  <a name="teacher-classes" href="/teacher-classes">My classes</a>
+	  <a name="bookings" href="/bookings"> My bookings</a>
         </iron-selector>
       </app-drawer>
 
@@ -105,10 +106,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	  <new-user-view name="new-user"></new-user-view>
 	  <users-list-view name="users-list"></users-list-view>
 	  <list-users-view name="list-users"></list-users-view>
-	  <list-classes-view name="list-classes"></list-classes-view>
+	  <explore-view name="explore"></explore-view>
 	  <teacher-classes-view name="teacher-classes"></teacher-classes-view>
 	  <new-class-view name="new-class"></new-class-view>
-	  <edit-class-view name="edit-class" route="{{subroute}}"></edit-class-view> 
+	  <edit-class-view route={{subroute}} name="edit-class"></edit-class-view>
+	  <bookings-view name="bookings"></bookings-view>
 <!--          <my-view3 name="view3"></my-view3> -->
           <my-view404 name="view404"></my-view404>
         </iron-pages>
@@ -134,7 +136,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _routePageChanged: function(page) {
         this.page = page || 'new-pet';
-      },
+    },
+    
 
       _pageChanged: function(page) {
     // Load page import on demand. Show 404 page if fails

@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../shared-styles.html">
+
+
+<dom-module id="class-summary-element">
+  <template>
+    <style include="shared-element">
+          :host {
+	      display:block;
+	  }
+    </style>
+
+    <paper-item> [[cl.title]] [[cl.score]]</paper-item>
+    <paper-item> [[cl.category]] </paper-item>
+    <paper-itme> [[cl.level]] </paper-item>
+    <paper-item> [[cl.description]] </paper-item>    
+    
+  </template>
+  
+  <script>
+    Polymer({
+	is: 'class-summary-element',
+	properties: {
+	    cl: {
+		type: Object,
+		value: {},
+	    }
+	},
+    });
+  </script>
+</dom-module>

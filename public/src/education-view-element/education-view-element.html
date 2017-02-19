@@ -1,0 +1,44 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../shared-styles.html">
+
+
+<dom-module id="education-view-element">
+  <template>
+    <style include="shared-styles">
+      :host {
+	  display: block;
+	  
+	  padding: 10px;
+      }
+      paper-card {
+        padding: 12px 12px;
+        width: 90%;
+      }
+    </style>
+
+    <paper-item> [[education.school_name]]</paper-item>
+    <paper-item> [[position.degree]]</paper-item>
+
+  </template>
+  
+  <script>
+    Polymer({
+      is: 'education-view-element',
+      properties: {
+        education: {
+          type: Object,
+          value: {},
+        }
+      },
+
+    });
+  </script>
+
+</dom-module>

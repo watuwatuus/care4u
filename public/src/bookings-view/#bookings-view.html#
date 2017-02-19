@@ -1,0 +1,67 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../booking-request-element/booking-request-element.html">
+<link rel="import" href="../class-summary-element/class-summary-element.html">
+<link rel="import" href="../student-summary-element/student-summary-element.html"> 
+<link rel="import" href="../shared-styles.html">
+
+
+<dom-module id="bookings-view">
+  <template>
+    <style include="shared-element">
+          :host {
+	      display:block;
+	  }
+    </style>
+
+    <!-- <template is="dom-repeat" items="[[response]]"> -->
+    <iron-list items="[[response]]">
+      <template>
+      <paper-card>
+	<div>
+	  <booking-request-element booking="[[item.booking]]"> </booking-request-element>
+	  <class-summary-element cl="[[item.cl]]"></class-summary-element>
+	  <student-summary-element student="[[item.student]]"></student-summary-element>
+    <br>
+    <br>
+	</div>
+      </paper-card>
+  </template>
+  </iron-list>
+    <iron-ajax
+       auto
+       id = "ajaxListBookings"
+       url = "/test_data/Ateacher_bookings.json"
+       last-response = "{{response}}"
+       on-response = "checkResponse"
+       handle-as = "json"
+       method = "Get"
+       >
+    </iron-ajax>
+
+  </template>
+  
+  <script>
+    Polymer({
+	is: 'bookings-view',
+	properties: {
+	    bookings: {
+		type: Array,
+		value: [],
+	    }
+	},
+
+	checkResponse: function(){
+	    console.log(this.response);
+	},
+	
+    });
+  </script>
+</dom-module>

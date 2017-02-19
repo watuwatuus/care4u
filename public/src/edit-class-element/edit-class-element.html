@@ -1,0 +1,139 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html"
+<link rel="import" href="../shared-styles.html">
+<!--<link rel="import" href="../education-element/education-element.html">-->
+ 
+
+<dom-module id="edit-class-element">
+  <template>
+    <style include="shared-styles">
+      :host {
+	  display: block;
+	  padding: 10px;
+      }
+    </style>
+    <h1>hwe</h1>        
+    <app-route
+       route="{{route}}"
+       pattern="/:id"
+       data="{{routeData}}"
+       >
+    </app-route> 
+  
+    
+
+    <paper-card class="white" style="margin-bottom:8px;">
+      <div class="card-content">
+	<paper-input name="class_title" label="Class Title" value ="{{cl.title}}" required></paper-input>
+	<paper-input name="class_category" label="Category (e.g. marketing)" value="{{cl.category}}" required></paper-input>
+	<paper-input name="class_description" label="Description" value="{{cl.description}}" required></paper-input>
+	<paper-input name="prereq" label="Prerequisites" value="{{cl.prereq}}" required></paper-input>
+	<paper-dropdown-menu name="class_level" label="Level" value="{{cl.level}}">
+	  <paper-menu class="dropdown-content">
+	    <paper-item value="Basic">Basic</paper-item>
+	    <paper-item value="Intermediate">Intermediate</paper-item>
+	    <paper-item value="Advanced">Advanced</paper-menu>
+          </paper-menu>
+        </paper-dropdown-menu>
+     </div>
+   </paper-card>
+
+<paper-card>
+  <div> Lessons </div>
+  <template name="lesson_titles" is="dom-repeat" items="{{cl.lessons}}" as="item">
+    <paper-input name="lesson_title" label="[[getLessonLabel(index)]]" value="{{item.title}}"></paper-input>
+  </template>
+  <paper-button on-tap="addLesson_">+</paper-button>
+</paper-card> 
+<hr>
+<paper-button raised on-tap="submit_">Submit</paper-button>
+
+
+<iron-ajax
+   auto
+   id = "ajaxGetClass"
+   url = "/test_data/single_teacher_classes.json"
+   last-response = "{{response}}"
+   on-response = "checkResponse"
+   handle-as = "json"
+   method = "GET"
+   >
+</iron-ajax>
+
+</template>
+
+
+<script>
+    Polymer({
+	is: 'edit-class-element',
+	
+	properties: {
+	    id: {
+		value: "",
+	    }
+	},
+	
+	ready: function(){
+	    this.set("cl", {
+		id: '',
+		title: '',
+		category: '',
+		score: '',
+		level: '',
+		prerequisite: '',
+          lessons: [{}],
+		
+	    });
+	},
+	
+	submit_: function(){
+	    this.set("body", JSON.stringify(this.cl));
+	    console.log(this.cl);
+
+	    //this.$.ajax1.generateRequest();
+	},
+	
+	observers: [
+	    'classIDChanged(id)'
+	],
+
+	classIDChanged: function(id){
+	    this.$.ajaxGetClass.generateRequest();
+	},
+	
+	
+	checkResponse: function(){
+	    console.log(this.response);
+	    console.log(this.id);
+	    for(var i=0;i<this.response.length;i++){
+		console.log(this.response[i].id);
+		if(this.response[i].id == this.id)
+		    this.cl = this.response[i];
+	    }
+	    console.log(this.cl);
+	},
+	
+	addLesson_: function(){
+	    this.push('cl.lessons',{});
+	},
+	
+	
+	getLessonLabel: function(index) {
+	    return "Lesson " + (index + 1) + " title";  
+	},
+	
+	
+		  
+    });
+</script>
+
+</dom-module>
+

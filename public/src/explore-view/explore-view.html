@@ -9,9 +9,11 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <link rel="import" href="../shared-styles.html">
-<link rel="import" href="../education-element/education-element.html">
+<!--<link rel="import" href="../education-element/education-element.html"> -->
+<link rel="import" href="../class-summary-element/class-summary-element.html"> 
+<link rel="import" href="../teacher-summary-element/teacher-summary-element.html"> 
 
-<dom-module id="teacher-classes-view">
+<dom-module id="explore-view">
   <template>
     <style include="shared-styles">
       :host {
@@ -25,43 +27,60 @@
       }
     </style>
 
-    <h1> I m here </h1>
-    <iron-list items="[[response]]" as="cl">
+    <iron-list items="[[response]]" as="item">
       <template>
 	<paper-card>
-	  <paper-item> [[cl.title]] [[item.cl_score]]</paper-item>
-	  <paper-item> [[cl.score]] </paper-item>
-	  <paper-item> [[cl.category]] </paper-item>
-          <paper-item> [[cl.description]] </paper-item>
-          <paper-item> [[cl.level]] </paper-item>
-	  <a href$="/edit-class/[[cl.id]]">Details</a>
-	</paper-card>
-      </template>
-    </iron-list> 
 
+	   <class-summary-element cl='[[item.cl]]'> </class-summary-element>
+	 
+         <teacher-summary-element teacher='[[item.teacher]]'> </teacher-summary-element> 
+<!--	<iron-item> [[item.education]] </iron-item> -->
+
+          <iron-list items="[[item.teacher.work_experience]]" as="workItem">
+	    <template>
+	      <span>[[workItem.company_name]] </span> 
+	    </template>
+	  </iron-list>
+	  <a href="/new-user">see more</a>  
+      </template>
+      <paper-card> 
+    </iron-list>
+   
 
     <iron-ajax
        auto
-       id = "ajaxListMyClasses"
-       url = "/test_data/single_teacher_classes.json"
+       id = "ajaxListClasses"
+       url = "/test_data/classes_ex.json"
        last-response = "{{response}}"
        on-response = "checkResponse"
        handle-as = "json"
        method = "GET"
        >
     </iron-ajax>
-
     <!--<span>{{response}}<span> -->
   </template>
 
   <script>
     Polymer({
-      is: 'teacher-classes-view',
+      is: 'explore-view',
+	
+	checkResponse: function(){
+	    console.log(this.response);
+	},
 
-      checkResponse: function(){
-        console.log(this.response);
-    },
+	getCl: function(item){
+	    var cl = {};
+	    console.log(item);
+	    cl.title = item.class_title;
+	    cl.score = item.class_score;
+	    cl.category = item.class_category;
+	    cl.description = item.class_description;
+	    console.log(cl);
+	    return cl;
 
+	}
+
+	
     });
   </script>
 </dom-module>

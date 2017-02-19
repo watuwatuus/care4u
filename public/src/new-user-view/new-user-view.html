@@ -7,8 +7,10 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <link rel="import" href="../shared-styles.html">
-<link rel="import" href="../education-element/education-element.html">
-<link rel="import" href="../work-experience-element/work-experience-element.html"> 
+<!--<link rel="import" href="../education-element/education-element.html">-->
+<link rel="import" href="../experience-input-element/experience-input-element.html"> 
+<link rel="import" href="../education-input-element/education-input-element.html"> 
+
 
 <dom-module id="new-user-view">
   <template>
@@ -43,7 +45,7 @@
     <paper-card>
       <div> Work Experience </div>
       <template is="dom-repeat" items="{{positions}}" >
-	<work-experience-element position="{{item}}"> <work-experience-element>
+	<experience-input-element position="{{item}}"> <experience-input-element>
       </template>
       <paper-button raised on-tap='addWorkExperience_'>+</paper-button>
     </paper-card>
@@ -51,7 +53,7 @@
     <paper-card>
       <div> Education </div>
       <template is="dom-repeat" items="{{educations}}">
-	<education-element school="{{item}}"> </education-element>
+	<education-input-element school="{{item}}"> </education-input-element>
       </template>
       <paper-button raised on-tap='addEducation_'>+</paper-button> 
       <!--<div class="output"></div> -->
@@ -72,43 +74,43 @@
   
   <script>
     Polymer({
-      is: 'new-user-view',
-      //submit_: function() {
-      //  this.$.form.submit();
-      //  this.$form. 
-      //},
-
-      properties: {
-        educations: {
-          type: Array,
-          value: [{}],
-        },
-        positions: {
-          type: Array,
-          value: [{}],
-        }
-      },
-    
-      addEducation_: function(){
-        this.push('educations', {});
-      },
-
-      addWorkExperience_: function(){
-        this.push('positions',{});
-      },
-
-      submit_: function(){
-        this.set("body", JSON.stringify({
-          user_name: this.user_name,
-          user_email: this.user_email,
-          positions: this.positions,
-          educations: this.educations
-        })
-      )
-    
-    this.$.ajax1.generateRequest();
-    },
-
+	is: 'new-user-view',
+	//submit_: function() {
+	//  this.$.form.submit();
+	//  this.$form. 
+	//},
+	
+	properties: {
+	    educations: {
+		type: Array,
+		value: [{}],
+	    },
+	    positions: {
+		type: Array,
+		value: [{}],
+	    }
+	},
+	
+	addEducation_: function(){
+	    this.push('educations', {});
+	},
+	
+	addWorkExperience_: function(){
+	    this.push('positions',{});
+	},
+	
+	submit_: function(){
+	    this.set("body", JSON.stringify({
+		user_name: this.user_name,
+		user_email: this.user_email,
+		positions: this.positions,
+		educations: this.educations
+	    })
+		    );
+	    
+	    this.$.ajax1.generateRequest();
+	},
+	
     });
   </script>
 </dom-module>

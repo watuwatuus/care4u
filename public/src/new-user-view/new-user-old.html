@@ -14,29 +14,29 @@
   <template>
     <style is="custom-style" include="shared-styles">
       :host {
-        display: block;
-
-        padding: 10px;
+	  display: block;
+	  
+	  padding: 10px;
       }
       paper-card {
-        padding: 12px 12px;
-      width: 90%;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      margin-right: 10px;
-      margin-left: 10px;
-      
+	  padding: 12px 12px;
+	  width: 90%;
+	  margin-top: 10px;
+	  margin-bottom: 10px;
+	  margin-right: 10px;
+	  margin-left: 10px;
+	  
       }
       paper-card.white {
-        --paper-card-header-color: #fff;
+	  --paper-card-header-color: #fff;
       }
     </style>
-
+    
     
     <paper-card class="white" style="margin-bottom:8px;">
       <div class="card-content">
-      <paper-input name="user_name" label="Name" value ="{{user_name}}" required></paper-input>
-      <paper-input name="email" label="Email Adress" value="{{user_email}}" required></paper-input>
+	<paper-input name="user_name" label="Name" value ="{{user_name}}" required></paper-input>
+	<paper-input name="email" label="Email Adress" value="{{user_email}}" required></paper-input>
       </div>
     </paper-card>
     <hr>
@@ -72,43 +72,43 @@
   
   <script>
     Polymer({
-      is: 'new-user-view',
-      //submit_: function() {
-      //  this.$.form.submit();
-      //  this.$form. 
-      //},
-
-      properties: {
-        educations: {
-          type: Array,
-          value: [{}],
-        },
-        positions: {
-          type: Array,
-          value: [{}],
-        }
-      },
+	is: 'new-user-view',
+	//submit_: function() {
+	//  this.$.form.submit();
+	//  this.$form. 
+	//},
+	
+	properties: {
+	    educations: {
+		type: Array,
+		value: [{}],
+	    },
+	    positions: {
+		type: Array,
+		value: [{}],
+	    }
+	},
     
-      addEducation_: function(){
-        this.push('educations', {});
-      },
-
-      /*addWorkExperience_: function(){
-        this.push('positions',{});
-      },*/
-
-      submit_: function(){
-        this.set("body", JSON.stringify({
-          user_name: this.user_name,
-          user_email: this.user_email,
-          positions: this.positions,
-          educations: this.educations
-        })
-      )
-    
-    this.$.ajax1.generateRequest();
-    },
-
+	addEducation_: function(){
+	    this.push('educations', {});
+	},
+	
+	addWorkExperience_: function(){
+	    this.push('positions',{});
+	},
+	
+	submit_: function(){
+	    this.set("body", JSON.stringify({
+		user_name: this.user_name,
+		user_email: this.user_email,
+		positions: this.positions,
+		educations: this.educations
+	    })
+		    )
+	    
+	    this.$.ajax1.generateRequest();
+	},
+	
     });
   </script>
 </dom-module>

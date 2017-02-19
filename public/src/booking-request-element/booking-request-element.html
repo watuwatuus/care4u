@@ -1,0 +1,54 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../shared-styles.html">
+
+
+<dom-module id="booking-request-element">
+  <template>
+    <style include="shared-element">
+          :host {
+	      display:block;
+	  }
+    </style>
+
+    <paper-item> Booking requested for [[booking.time]] </paper-item>
+    <paper-button on_tap="[[acceptPushed_]]" raised hidden$="[[item.booking.i_attend]]"> Accept  </paper-button>
+	  <!--
+	      <paper-button on_tap="[[rejectPushed_]]" raised  hidden$="[[booking.I_attend]]"> Reject </paper-button>
+	      <paper-button on_tap="[[ChangePushed_]]" raised> Change </paper-button> -->
+    
+
+  </template>
+  
+  <script>
+    Polymer({
+	is: 'booking-request-element',
+	properties: {
+	    booking: {
+		type: Object,
+		value: {},
+	    }
+	},
+
+	acceptPushed_: function(){
+	    this.booking.status = accepted;
+	},
+
+	rejectPushed_: function(){
+	    this.booking.status = rejected;
+	},
+	
+	changePushed_: function(){
+	    this.booking.status = pending;
+	},
+
+	
+    });
+  </script>
+</dom-module>
